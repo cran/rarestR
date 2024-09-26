@@ -12,7 +12,7 @@
 
 
 
-<title>rarestR: An R package for Rarefaction-Based Species Richness Estimator</title>
+<title>rarestR: An R package using rarefaction metrics to estimate α-diversity and β-diversity for incomplete samples</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -336,8 +336,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">rarestR: An R package for Rarefaction-Based
-Species Richness Estimator</h1>
+<h1 class="title toc-ignore">rarestR: An R package using rarefaction
+metrics to estimate α-diversity and β-diversity for incomplete
+samples</h1>
 
 
 
@@ -370,8 +371,8 @@ communities. Every community consists of 100 species with approximately
 community shared a total of 25 and 50 species with the control. A more
 detailed description of the control and scenario groups can be found in
 Zou and Axmacher (2021). The share dataset represents a random subsample
-of 100, 150 and 200 individuals from three three communities, containing
-58, 57 and 74 species, respectively.</p>
+of 100, 150, and 200 individuals from three three communities,
+containing 58, 57, and 74 species, respectively.</p>
 </div>
 <div id="calculate-the-expected-species" class="section level2">
 <h2>Calculate the Expected Species</h2>
@@ -406,13 +407,14 @@ Expected Species Shared (ESS)-measures</h2>
 <div id="calculate-and-visualize-the-total-expected-species-base-on-esa-esb-and-their-average-value" class="section level2">
 <h2>Calculate and visualize the Total Expected Species base on ESa, ESb
 and their average value</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>Output_tes <span class="ot">&lt;-</span> <span class="fu">tes</span>(share[<span class="dv">1</span>,])</span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>Output_tes <span class="ot">&lt;-</span> <span class="fu">tes</span>(<span class="at">x =</span> share[<span class="dv">1</span>,])</span>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>Output_tes</span></code></pre></div>
 <pre><code>##          est est.sd model.par
 ## TESa  138.50   2.46  logistic
 ## TESb   92.63  32.65   Weibull
 ## TESab 115.56  16.37      &lt;NA&gt;</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">plot</span>(Output_tes)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAEgCAMAAABrWDzDAAAAh1BMVEUAAAAAADoAAGYAOmYAOpAAZpAAZrY6AAA6ADo6AGY6OgA6Ojo6OmY6ZpA6kNtmAABmADpmOgBmOjpmtrZmtv+QOgCQZgCQZjqQkLaQttuQ2/+2ZgC2kGa227a22/+2/7a2///bkDrbtmbbtpDb27bb////AAD/tmb/25D/27b//7b//9v///8WLFKFAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAQHUlEQVR4nO2dC3vbthWGkdSL22WTdrG7rdrasmtETdb//30jLqIoiQQIHhD4IH3v88SxFZOETl7cL1InQgSo0gkgdUOBiAgKRERQICKCAhERFIiIoEBEBAUiIigQEUGBiAgKRERQICKiAoGO208/DX48vH7+tVhaEDHx2ak+KnkDVIFAjXr5Nvjx411tiqUFEROfgUB5A4Qv0F08boR6dmx8BgLlDRC+QK0yNdh//6qU+pP+7vCq3konCggbn06g//xNqT//fMocIHyBGpO3WmXQsTpuWYcNsPHZ2fiY77MGCF6groT+Yr7+4ZvOWjoyO9ZhF2x8tEAvP59+U+6HfAGCF6jLTl/sd7//+4/n+LAf1uPis7MV/c4VR/kCBC+QK3U+/mGLaB2sRl3165+bvlQ2ztjQ5AxQJQJ1BbX67p+/bynQLdfVOgW6wwbIfj1SoDtYAgWwAeo6YW99sCjQgF4g03W3HlGgAbbU6cL08u1/72xE39E3otXnQS+Mjeievht/aUSzGz/g0o3vx4HYjb/CDszrXth3/zKDZpwMu8LGZzgSnTVA+AK1txX64ZVNoAF38ckbIHyBuvx0PbPTsgYbchefvAHCF6gro79c/bxjDXbFbXzyBqgCgY7bqz4FF5TdcBMfLigjNUGBiAgKRERQICKCAhERFIiIoEBERFKBVO2kDMaTxCetQClvVoDVBVr5/mtDgQJQID8UKAAF8kOBAlAgPxQoAAXyQ4ECUCA/FCgABfJDgQJQID8UKAAF8kOBAlAgPxQoAAXyQ4ECUCA/FCgABfJDgQJQID8UKAAF8kOBAlAgPwsFOvyg96kdt3pFkd4D2aqp42ceMUA13X9tlgnkNj4evnfStJ097bhBjxigMDaDXfLVc2Ww4Htq3Zkzrdsv+/FuDsT6Mva7jxigIC6D9fnqyTJY6D21amPVaZwyh1d9FkQzuv36EQMUwmWwPl89Wwab8Z6sQLuvXRNoc67KWgpkOWewPl89WwabK9Bxa87B2rjS+aqM9q7ar4ll6bcCnfPVSAZ76PjMLoHO344IFHMzaAQC9WF5tvjECdSVz6zCbqFAAYYCff/Ts9XxYYJVmPD+OEgEst503z5bLyMMG9EBXC/MnEa8ebpxjjAtu/F+XHGsj7I2x4E2TzXSGqblQOKaD6gJiUCXfPVcGYwCDeBkqh8KFIAC+aFAASiQn/UFcsP1Wf/e7/dJ/k4dDJT49H+vE58KS6D9hcR3fswSKF20qhdoFWsGPJ5AaQNWt0DrumN4MIGSR6xigTLYc3osgdaIWLUCZbHn9FACrRKxWgXKpM8DCbRSxOoUKJs+DyPQagV2lQJl9OdBBFovYjUKlNOfhxBozfZifQJl1echBFo1YhUKlPqGfuoXaN0cV51Amf2pX6CVS+zaBMrtT/UCrV3jVyZQ5gbQSZj+Rrklv8UOVygy1YMrUH5/ROlv9FJobVCxNdHrB6wqgQr4I0n/x7vZtVJyV8b6AatLoIT3mksKgYrtCys02YwqUIkCKEkVVupwhRzxqkqgdLeajyj9ru1caG98lgxXkUBF/BGlf9eVOYfX0eNvktzfT54Cux6BilRgovRf9sYXOVyh3HopUIFS3SgOQfr7gqdIIzpTvKoRqFABJC+BCp1ekite9QiU6D6xpGgDlRhILLliE1GgUgWQLP369BJd+OQ/XCFbuKoRKM1t4qlzMjVffqtEoGIFUK0CrXLXMWoRKMldllClQIU3HVCgAXUKtMZNx6lDoHL+VClQ6U0HFGhAhQIV37UCJ1BBf6oUKP0tp1koUN7Pw6JAMeTtsS4TKO/nYZXrw5+qFCj5HX0sEijz52GV9Kc+gQA2XobeU+7Pw6JAMQBsvJzxnnJ+HlZRf6oTKHd9LxEo08cZUaAYEHbuUqABlQkEsfEyRRUWczM/Zf2hQAFEAmVpRFOgCDC2fs8VKE83vmaBDq9Kmajk2huPsfX75jW7KPM6Avk+D6uwPzPSPxYfS/vy7XTcfsm3pBXk7IDr10z9ZPZXmorKku/zsOAFGo2PwRbMTcZF9SBnB1y/Zj/XUgszHoEFD4ig6DSGJpj+6fjYvsXplG1vPMrhE1evHbeb8zEB492sBQ+IoLQ/wfR74tN+/mVrFtXn2liIcnbAjUBvLkoUaAxPfBo9Y6jdGhknW+NwBZjDJ+4FcmVw1yZM8oD5FK/B5gk0Hp/mkyt4Mu2Nhzl84r4NZEJhy+kUD5hPcX/mtYHG42MbPZ1ceaqwMpktLFCXcY5bnbd2S2qwxxdoOj7WmM6ePI1onMMnbl5rleric3hdUoE9gUDT8TG1W7a98UCnlyQdmhDdrLw/ovTrRpGRJ8dAItDhExRogCj9bca98agC2XLYkL8bX4FAReMzAOnwiXuBbCWePUAA/swTqFB8hlCgESjQbKAOn6BAAyiQH2SByg9Dn2oRCOv4GxiBll+ajkoESnKXJVCgABTID7BAEP7UIRDY6SU3Al1WHlCge8rFZwCyQGs8YB51CIRwf7TDJyjQAArkB1cgDH9qEAju+BsKNKAGgeS3WA4FCoAvUNnxVliBIIahT/gCKYV3+ASGQCkTIQBcINXltLWTGEjAvNeSPmAOFGjW1aYAKmkQqkAo/oiDsTNLpdc6XKG7uiuAKNA9jyJQqxfcr7Ym2hVAFOieBxHouFXnhfVr7MroCp/CBRCoQKW7FgNkwWhefjRbftbZF9YVPfuVP3o+nIaZryV9QPiafdlsNUCUjsP3P+k20Fo7U8s3oTEFUqYGAzFIkgxddWmBVjpcQZk+fNkCCFMggIzVI0mG3lg4IVCC+ysTp8L+YApkarD6BTI113pVmL5yX9ofRIF01wKmAJKko3GV1NsqjWhlanoKNHJFVzKXrtkvpBhIXKUb72qwxQlLhEggu5zTnO6WcKQVqgZLMxK9xkCiGYQun89EAvWnSKYMEFYNlmgqI/3hCgpksEMk0LlZmLSIxqrBYCdTdZjKN6GFAjVOmaSNRLtAoXxkHLACFZ9G7dMx67VRdl/V1DG2iwfKwGowVIFgxsokArmjATdJB8rAajBYgTCa0Cm68YmPscXqg6EKZGYxyg8CnVIIlPYYW7QaDFYglDAlECjpMbZoNRiqQADTqBaJQNabtMfYgvXBQAXCKYCEvTDzQTUpj7EFiowDUSCIdRwOWRW201OF+ptUI60wnYseQIHOg9AQYcKaTMXpXPQgCqQHoVGihCYQWg2GKhBMMQ0mEFwNBiiQHulAmEa1QAkENwh0AhRIYeUyLIGQymYHoEBALSA0gdAGgU6IApXfTDgESSDAJjSeQCjrgM5ACQRVuTskyfl4P3/cU7olv2hBAhII4KSAEQTJ+XjvpGn0mvF0S37hgoQkEFbl7hCkp59jTjpXCBYkHIFc5Q4UG4M4PV3Jk261AsJxCtcACYSWtyziBO0+/5puvZTpwkMFCUYghTgIdJIHo1WjS36XrRl3MUIKEo5AmAWQNEXtuQ2dYsmvOsHNNcMIhFoACYPRml58oioMMkYwAoEWQLIkNXYUKFEj2rSgwQogFIEgM5dBkqTGrrZLtHMXbBLMgSIQagEkGwfauO+SDCRi5jEMgXALIEkw3PlAWpwES37xhoAMMAKBFkAwk6mYFRiIQKCD0AYQgc4hgosRgkDKrETEi40BQ6DzcWR4MQIQSCEXQBgCmWWsmCHCEAiydrcgCKSQdhLeUF4g4B6YBkAg6w/WHGoPhEBQazRvKC9Q9xugDWhNcYGgG0AnAIEUbAfMUFggdW4AYUbnVF4gdd7uDRqhsgKpcwMINDqn4gL1/qycjMUUFagCf8oKpJD7X5aSAoHX7paCApnIoEeooEB97sKNzqmkQNqeTh/g9o+mmECqDn+KCXQufk7gESolkMKewLhQQiArj9anzgy2rkBuL0IFzR9DZoGsOnZ+2Yw+o0cor0DWGFf6VOFPZoHU+c9+j197GRIJNO/wAJe19MyyOccFPzypBJp5uIL5Yb+34ak3PvHJnrfm12avc+aqIz5pBArHZz/AxEmBTp7ekkSgmbsOXNGzP9WjT5r/xdm7MlT/tYbay5BEoBn7ns65y7pTSfGsSZHM+fvCXCFdS3BOqQSa+Xlh6vIPsY8oRhKB5n+eWk2hMSQRaPbe7+rCk0aglB+HhUZegSqEAvlZqwpbfjMwVqrCkt6/JLka0dWStxFdHzm78VWStRtfITkHEqsk00BitSSayvAcHlA78cF4+viskSni77kgFVkesg6TCYn/h5T3WvD00D8uhAL5oUABKJAfChSAAvmhQAEokB8KFIAC+aFAASiQHwoUgAL5oUABKJAfCkTIGQpERFAgIoICEREUiIigQEQEBSIiKBARQYGICApERFAgIoICEREUiIhILtD0+VwTHLd6w8joRrwJDj/8Gvkke0X8k1ZgKtUf713aNiP/oNm9fBt7+fA68Xb0J7i+RSTKxsebhClSC+TZVjeB3UwewXFr9g1HPMldEf2kFZhK9cd792IzYXerRgVqu1eP25FLGv2QCINsfLxJmCSxQL6NvROMn0Pg+X2l7Nud/SR3RfSTVmAy1b4t9V3JOSaQvdfIJR/vX8YfMoGLjy8J0yQWaEEimjjlW7Vp497u+YrYJ61BINXjJWrz8uOYQJMFaqRAfXw8SZgmtUCew00m2H2NrXmtQDFPsr8W/6TkBFK9G/uH7prRNlD7+Zft+PuJrcKGCRpNgofEAvmOVxrnuNXB2cX8v5q3G/Ukc8WCJyXHn+p2TAddU40K1OiKx5Y29zeK68lcBBpNgo/iArnrYrxfKNCCJyXHm+p2tAHbdPKMC/RpqjTTpcjhNcKE/ibjSfBRvgqz173GFrgLqrD4JyXHl+rxzG+uGBfIdi3v3098Q/ScoOjyB6ERba+L6WFHNqJP1wIV7ct7Ut2M/+c17mSVe+3bqbGJ+GrAxWciCV6Kd+NtSOOrsKgnDZQrW4VNp7rxNXpHS6DjduL9xL9R10uNGnx0lB9INNGMb0RHPcn1wqKflJ6pVPubLOMj0bp1ZI28/fVFbaCoK3qST2VMn881xS5y3P1S4M5+krsi+kkrMJFqV1NNvKGJqYx2alhiFzleYeLjT8IUnEwlIigQEUGBiAgKRERQICKCAhERFIiIoEBEBAUiIigQEUGBiAgKRERQICKCAhERFIiIoEBEBAUiIpAFsot+HR/v12sJj38pv9G9MBDxqUagu33J7fgyzycCIj61CHQVLMNtlns+IOIDLtBx+/etWQjfmo0G+oeNPhXH7K569iIIIj7wAukza7o/ekvO4dUcYNOFqrlsbn5iIOIDL9DGbJRzf1++vJXepAwARHzgBXq7/H0Ji/ligvbMQMSnEoFuYkOBNBDxqUQglkAjQMSnGoE2dwFiGwghPpUI5HoZV7FhLwwhPrUIZMc5rgLEcSCE+CALNOR+pPX+lWemWHxqEYhzYQE4FxaAs/F+OBtPqoQCEREUiIigQEQEBSIiKBARQYGICApERFAgIoICERH/B1ssat6WhTOyAAAAAElFTkSuQmCC" /><!-- --></p>
 </div>
 <div id="calculate-and-visualize-the-total-number-of-expected-shared-species-between-two-samples" class="section level2">
 <h2>Calculate and visualize the Total number of Expected Shared Species
@@ -422,6 +424,86 @@ between two samples</h2>
 <pre><code>##     est est.sd model.par
 ## 1 23.28   2.59  logistic</code></pre>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="fu">plot</span>(Output_tess)</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+</div>
+<div id="customize-the-plots" class="section level2">
+<h2>Customize the plots</h2>
+<p>The <strong>rarestR</strong> package provides a S3 method to use the
+generic <code>plot()</code> function for visualizing the output of the
+<code>tes()</code> and <code>tess()</code> functions in a fast way and
+consistent way, which is friendly to R beginners. Advanced R users might
+want to customize the plots. They can extract the modelled data and use
+other data visualization functions. Here we demonstrate how to customize
+the plot of the Total Expected Species calculated on the basis of the
+previous example.</p>
+<p>The <code>tes()</code> function returns a list
+(<code>Output_tes</code>) with (1) a data frame (<code>$tbl</code>) of
+the summary of the estimated values and their standard deviations based
+on TESa, TESb, and TESab, and the model used in the estimation of TES,
+either ‘logistic’ or ‘Weibull’., (2) a list (<code>$TESa</code>) of the
+modeled results with the TESa method, and (3) a list
+(<code>$TESb</code>) of the modelled results with the TESb method. By
+default, only the data frame is printed in the R console when printing
+<code>Output_tes</code>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>Output_tes</span></code></pre></div>
+<pre><code>##          est est.sd model.par
+## TESa  138.50   2.46  logistic
+## TESb   92.63  32.65   Weibull
+## TESab 115.56  16.37      &lt;NA&gt;</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>Output_tes<span class="sc">$</span>tbl</span></code></pre></div>
+<pre><code>##          est est.sd model.par
+## TESa  138.50   2.46  logistic
+## TESb   92.63  32.65   Weibull
+## TESab 115.56  16.37      &lt;NA&gt;</code></pre>
+<p>You can explicitly print the two lists as well:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>Output_tes<span class="sc">$</span>TESa</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>Output_tes<span class="sc">$</span>TESb</span></code></pre></div>
+<p>or see their structures:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="fu">str</span>(Output_tes<span class="sc">$</span>TESa)</span></code></pre></div>
+<pre><code>## List of 5
+##  $ par   : Named chr [1:3] &quot;138.5&quot; &quot;2.46&quot; &quot;logistic&quot;
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;est&quot; &quot;est.sd&quot; &quot;model.par&quot;
+##  $ result:&#39;data.frame&#39;:  33 obs. of  2 variables:
+##   ..$ value: num [1:33] 1.98 2.95 3.91 4.85 5.78 ...
+##   ..$ Logm : num [1:33] 0.693 1.099 1.386 1.609 1.792 ...
+##  $ xmax  : num 8.88
+##  $ Predx : num [1:1000] 0 0.0178 0.0355 0.0533 0.0711 ...
+##  $ Predy : num [1:1000] 0.996 1.013 1.031 1.05 1.068 ...</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="fu">str</span>(Output_tes<span class="sc">$</span>TESb)</span></code></pre></div>
+<pre><code>## List of 5
+##  $ par   : Named chr [1:3] &quot;92.63&quot; &quot;32.65&quot; &quot;Weibull&quot;
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;est&quot; &quot;est.sd&quot; &quot;model.par&quot;
+##  $ result:&#39;data.frame&#39;:  33 obs. of  2 variables:
+##   ..$ value: num [1:33] 1.97 2.92 3.85 4.76 5.64 ...
+##   ..$ Logm : num [1:33] 0.693 1.099 1.386 1.609 1.792 ...
+##  $ xmax  : num 7.1
+##  $ Predx : num [1:1000] 0 0.0142 0.0284 0.0427 0.0569 ...
+##  $ Predy : num [1:1000] 2.27 2.27 2.27 2.27 2.27 ...</code></pre>
+<p>Thus, you can extract the simulated results and predicted x and y
+values for TESa:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>result</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predx</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predy</span></code></pre></div>
+<p>or TESb in a similar way.</p>
+<p>Then, you can visualize these data in your favourite way. In the
+following example, we use the base R functions with rotated y labels
+(<code>las = 1</code>), logarithmic y axis (<code>log = &quot;y&quot;</code>), and
+blue points (‘col = “blue”’):</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="fu">plot</span>(Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predx, Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predy, <span class="at">type =</span> <span class="st">&#39;l&#39;</span>, <span class="at">las =</span> <span class="dv">1</span>, </span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&#39;ln(m)&#39;</span>, <span class="at">ylab =</span> <span class="st">&#39;ES&#39;</span>, <span class="at">log =</span> <span class="st">&#39;y&#39;</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a><span class="fu">points</span>(Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>result<span class="sc">$</span>Logm, Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>result<span class="sc">$</span>value, <span class="at">col =</span> <span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASAAAAEgCAMAAAAjXV6yAAAATlBMVEUAAAAAADoAAGYAAP8AOpAAZrY6AAA6ADo6AGY6Ojo6kNtmAABmADpmtrZmtv+QOgCQ2/+2ZgC2///bkDrb////tmb/25D//7b//9v///8JX0SdAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAHPUlEQVR4nO2di5ajKBRFrXY63ZPM1KMdk+L/f3TkYRKjckBBrsnZa3VSVYtcO3sBFxC1UsRLVfo/IB0KAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFARILKjaDaUEpQ2XDwoCUBDgKQWl7H2eQNCKjjUkevKCW4ZLrmPiEMkLbhUuuxp3mOQFNwm3kR21U0Gb2VG7FLSlns0FJUg0m+rZYQ3a2M/eBG2tZ2+CtvezL0EF/OxKUAk/exJUxM+OBJXxsx9BhfzsRFBd16VW2HIIupz0UPln91NbVW+fa8NZP3XMBxKSQ9D5l5PSdnbaaUMxgqyfQoZyCGp//DHv3x/H7vXr58pwtaZ7Df9ESnIIapyS8+Fd/+Z0LQ1XmwpUP5Ogr7+7LujYN7V2tSBVsALlEHQ5/fVfZ+noup9BJxS/3NFXoODDJyZbmu8qzoSg+HBlG1hGQV0HlKKJ1Y7Io6cjn6Bfnwk6adP7lPSTQ5D10lWc9Wm+cAbTZMliWknXSa8fKJYdAhmyNLGvLkvpWqSadVMNLadkBtOInqyW7qA1FASQLMhNUilohuJDIINsQYVTvEauoMKT1B6xgmQ0sDyCvj/scseqJVet5kkFfX90Uhq9Jr1mJG3X6Yv7yTcXa9bNxWT00CrnetDbmtl8P4l/YkFfP/6sWA+SMAuz5BLUVquWXIWkMLVA0Plw9GUnR9v30QuXXLseSEYFihZk+pW2endd8QytyfLLm5iUQZCKF2QXw/R3ns5OhsaOgpZ30kXPpQ6JFHQ5HfVAx5x3n/zimsauli0/s9pVHRk5Xi0Q9O4szQsyvZRh4UDRrESXn4VZlghyTUefHpyisWlKi1m25CqoB1rWBzX6S9t2luO4csZAmlhBXYtxp5Znu6C1x5VUfxaMg7ohUOfnfJhrYOuPK2Qa75C3HuSm8RQ0h6wWtiiLWebHQeuOK2gMpFkiyA4AMwmycsT42VoQns0Lq0DiapCrQBQ0K0iJmaZahAkSNcswSBMkrQIJEyRpncMRLeiWh7IIkpXjlbSRtLwKJEuQ7oGEVSBhgqSlMJVZ0O3CsaBwpot+qRp0vXAsKJx2I2Yp+kpWQZ6RwJQggQ0ss6Bmftl6ugYJGyRqsgrqLxwLCqdTWCXOT1ZB1wvH7qLML3fIWoq+kj/Nh56br82l8S8oaHqXw4QgcbMMwwaCJnP9KJydZSw9SD5yCrpeOBYQrjZ/ejFBtwvHcLjXFHS7cAyGq81fXk5QRDh583iLEEEiZxkGGYLsLEMkIgRpPwJnGQYxgmT2QBQEESFIbApTUgQpoSlMSRGUOHhKJAiSW32UCEF6IUiuofKCJKcwtbmgiSVXCgLhxM7jLeUFSR4EKRGCZC619kgQlDZyYsoLKnUf5EAECEobODXFBQmvQAIEpY2bHAoC5BZ0/j29RagPJ72F5RZ0Oc3soaoe3sWSV1A7u5vahRNfgTJvwauOc7vwqsGbYHL3QQ+CHp/RSUGgBsmHggAUBKAgQDFBu6GQoAVBYwrnKps+DAVtF5SCEhamoEJl84dZEZSCEhamoEJl84dZEfQVBT0TFASgIAAFASgIQEEACgJQEICCABQEoCAABQEoCJBeEHx6yR2ee1k94nYkBUW3ZSOCe0guyPPIhDGee1k94HYkBUV3ZcOD+0gtyPfQjTHBd7V0O5KCove7l9bdMrMntSDfY1vGeO5lNaDfkRQS/bp7KTS4n+SCPA/+GeO5l9UjVlBYdFsgIriH1IJ8j44aMXEvq/nA+ksHRjdlY4J7KCrIfSSoukULignuoWwTsx/xPbHrSnwTiwjuoWwnbT8SlI6DO2k1FLQ21xdN8757WT3SBqf5gUxxTSxuoOi5l9UobvhAsc9i4cE9pJ9qzD9ba4L5e1k94qpCUHRXNjy4B05WARQEoCAABQEoCEBBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCABQEoCCAQEHm0eU93x/Ds+uXf1JsXY1AuqDRTsxWb6zbEOGCBrIMj1UqNzIFXU7/nszWFb2R5XzQvxzPB7uZpdm2CkkV9Papmu6f3gR1Puhf9Obw5raRczOkCjqaPXTu/fbynmBbZhxSBb3f3m9azIuRth2yBT24oSADaxBgIOg4EsQ+6E6Qy2IDN8xi94LsOGggiOOge8Yj6fFf8iJcEOdiCM7mpUNBAAoCUBCAggAUBKAgAAUBKAhAQQAKAlAQgIIAFASgIAAFASgIQEEACgJQEICCAP8D1d79eVnT8LUAAAAASUVORK5CYII=" /><!-- --></p>
+<p>You can use <strong>ggplot2</strong> as well. Here is an example (not
+shown):</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predx, Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>Predy)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(Logm, value), <span class="at">data =</span> Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>result, <span class="at">colour =</span> <span class="st">&#39;red&#39;</span>, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">as.numeric</span>(Output_tes<span class="sc">$</span>TESa<span class="sc">$</span>par[<span class="dv">1</span>]), <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">150</span>)) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;ln(m)&#39;</span>, <span class="at">y =</span> <span class="st">&#39;ES&#39;</span>)</span></code></pre></div>
+<p>For more details, see the <em>Details</em> section in the help
+documents for <code>tes()</code> and <code>tess()</code>.</p>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>

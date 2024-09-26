@@ -4,16 +4,12 @@
 \alias{tess}
 \title{Calculate the Total number of Expected Shared Species between two samples.}
 \usage{
-tess(x, knots = 40)
+tess(x)
 }
 \arguments{
 \item{x}{a data matrix for two samples representing two communities (plot x species)}
-
-\item{knots}{specifies the number of separate sample sizes of increasing value used for the calculation of ESS between 1 and the endpoint, which by default is set to knots=40}
 }
 \value{
-estimated values and their standard deviations of TESS, and the model used in the estimation of TES, either 'logistic' or 'Weibull'
-
 a list in a self-defined class 'rarestr'. See "Details".
 }
 \description{
